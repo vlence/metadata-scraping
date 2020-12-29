@@ -1,0 +1,30 @@
+{
+  "name": "metadata-scraping",
+  "version": "1.0.0",
+  "description": "Scrapes a web page for metadata, including og parameters",
+  "main": "handler.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.5",
+    "chrome-aws-lambda": "^5.5.0",
+    "open-graph-scraper": "^4.7.1",
+    "puppeteer-core": "^5.5.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "puppeteer": "^5.5.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlence/metadata-scraping.git"
+  },
+  "keywords": [],
+  "author": "Victor Basumatary <vlenceleuth@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vlence/metadata-scraping/issues"
+  },
+  "homepage": "https://github.com/vlence/metadata-scraping#readme"
+}
