@@ -11,6 +11,12 @@ provider:
   stage: dev
   region: us-east-1
   memorySize: 10240 # chromium runs faster with max memory
+  iamRoleStatements:
+  - Effect: Allow
+    Action:
+    - dynamodb:GetItem
+    - dynamodb:PutItem
+    Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/*"
 
 functions:
   getMetadata:
@@ -19,3 +25,22 @@ functions:
     - http:
         path: /
         method: post
+
+resources:
+  Resources:
+    Cache:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: cache
+        AttributeDefinitions:
+        - AttributeName: url
+          AttributeType: S
+        KeySchema:
+        - AttributeName: url
+          KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 25
+          WriteCapacityUnits: 25
+        TimeToLiveSpecification:
+          AttributeName: ttl
+          Enabled: false

@@ -4,7 +4,7 @@ const cheerio = require('cheerio');
 module.exports = getMetadata;
 
 /**
- * Returns the metadata, including og parameters if any,
+ * Returns the metadata, including open graph parameters if any,
  * of the given url.
  * 
  * @param {string} page The html page
